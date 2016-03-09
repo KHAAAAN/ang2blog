@@ -1,0 +1,47 @@
+.navbar{
+   	-webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
+	background-color: rgba(0, 0, 0, 0.78);
+	border: 0;
+	border-radius: 0;
+}
+
+#home{
+	font-size: 16px;
+	color: white;
+}
+
+#home:hover{
+	color: rgb(120, 186, 243);
+}
+
+.glyphicon:before{
+	margin-right: 5px;
+}
+
+#login{
+	font-size: 16px;
+	color: white;
+	padding-right: 30px;
+}
+
+#login:hover{
+	color: rgb(120, 186, 243);
+}
+
+#register{
+	font-size: 16px;
+	color: white;
+	padding-right: 30px;
+}
+
+#register:hover{
+	color: rgb(120, 186, 243);
+}
+
+.navbar-toggle{
+	border:0;
+}
+

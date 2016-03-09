@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" style="padding-top:8px; padding-left:20px; padding-right: 3px;">
+				<img alt="Angular" src="app/images/logo-nav.png">
+			</a>
+			<a style="display: inline-block; padding-right: 15px; font-size: 24px; cursor: default; text-decoration: none; padding-top:10px; color: white;">2</a>
+		</div>	
+
+		 <div style="border:0;" class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+
+				<li>
+					<a id="home" [routerLink]="['Home']">
+					<span class="glyphicon glyphicon-home">
+					</span>
+						Home
+					</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a id="register" [routerLink]="['Register']">
+					<span class="glyphicon glyphicon-user">
+					</span>
+					Register	
+					</a>
+				</li>
+				<li>
+					<a id="login" [routerLink]="['Login']">
+					<span class="glyphicon glyphicon-log-in">
+					</span>
+					Login
+					</a>	
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+</nav>
+
+<router-outlet>
+</router-outlet>

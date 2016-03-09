@@ -6,6 +6,7 @@ import {NavbarComponent} from './navbar.component';
 import{LoginComponent} from './login.component';
 import {RegisterComponent} from './register.component';
 import {HomeComponent} from './home.component';
+import {LoginSuccComponent} from './login-succ.component';
 
 import {UserService} from './user.service';
 
@@ -21,8 +22,7 @@ import {UserService} from './user.service';
 
 @RouteConfig([
 	{
-		path: '/login',
-		name: 'Login',
+		path: '/login', name: 'Login',
 		component: LoginComponent
 	},
 	
@@ -37,6 +37,12 @@ import {UserService} from './user.service';
 		name: 'Home',
 		component: HomeComponent,
 		useAsDefault: true
+	},
+
+	{
+		path: '/login_successful',
+		name: 'LoginSucc',
+		component: LoginSuccComponent
 	}	
 ])
 

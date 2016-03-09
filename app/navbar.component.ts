@@ -17,10 +17,9 @@ import {UserService} from './user.service';
 
 
 export class NavbarComponent {	
-	constructor (private _userService : UserService){}
-	public userModelWrapper;
-
-	ngOnInit(){
-		this.userModelWrapper = this._userService.userModelWrapper;
+	constructor (private _userService : UserService){	
+		this._userService.user$.subscribe(userModel => { this.userModel = userModel[0]; } );
 	}
+
+	public userModel: User;
 }

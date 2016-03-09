@@ -25,18 +25,32 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a *ngIf="userModelWrapper.userModel===null" id="register" [routerLink]="['Register']">
+				<li *ngIf="userModel == null">
+					<a id="register" [routerLink]="['Register']">
 					<span class="glyphicon glyphicon-user">
 					</span>
 					Register	
 					</a>
 				</li>
-				<li *ngIf="userModelWrapper.userModel === null">
+				<li *ngIf="userModel == null">
 					<a id="login" [routerLink]="['Login']">
 					<span class="glyphicon glyphicon-log-in">
 					</span>
 					Login
+					</a>	
+				</li>
+				<li *ngIf="userModel">
+					<a style="pointer: default;" id="login">
+					<span class="glyphicon glyphicon-knight">
+					</span>
+					Logged in as {{userModel.name}}
+					</a>	
+				</li>
+				<li *ngIf="userModel">
+					<a id="login">
+					<span class="glyphicon glyphicon-log-out">
+					</span>
+					Log out
 					</a>	
 				</li>
 			</ul>

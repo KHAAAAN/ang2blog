@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {LoginService} from './login.service';
 import {UserService} from './user.service';
+import { Router } from 'angular2/router';
 
 @Component({
 	selector: 'login',
@@ -30,12 +31,23 @@ export class LoginComponent{
 			else{
 				this.invalidInfo = null;
 				this._userService.setUserModel(this.username, this.token);
+				this.gotoSuccess();	
 			}
 		},
 			error => this.error = <any>error
 		);
 	}
 
-	constructor(private _loginService: LoginService, private _userService: UserService){}
+
+	public gotoSuccess() {
+		/*let link = ['LoginSucc', { name: this.username }];
+		this._router.navigate(link);*/
+
+		/*let link = ['LoginSucc'];
+		this._router.navigate(link);*/
+	   this._router.parent.navigate(['LoginSucc']);
+	}
+
+	constructor(private _loginService: LoginService, private _userService: UserService, private _router: Router){}
 
 }

@@ -7,7 +7,7 @@ import{LoginComponent} from './login.component';
 import {RegisterComponent} from './register.component';
 import {HomeComponent} from './home.component';
 
-import {HomeService} from './home.service';
+import {UserService} from './user.service';
 
 @Component({
     selector: 'app',
@@ -16,7 +16,7 @@ import {HomeService} from './home.service';
 
 	directives: [NavbarComponent],
 
-	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, HomeService]
+	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService]
 })
 
 @RouteConfig([

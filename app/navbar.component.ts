@@ -5,6 +5,9 @@ import{LoginComponent} from './login.component';
 import{RegisterComponent} from './register.component';
 import {HomeComponent} from './home.component';
 
+import {User} from './user';
+import {UserService} from './user.service';
+
 @Component({
 	selector: 'navbar',
 	templateUrl: 'app/navbar.component.html',
@@ -14,4 +17,10 @@ import {HomeComponent} from './home.component';
 
 
 export class NavbarComponent {	
+	constructor (private _userService : UserService){}
+	public userModelWrapper;
+
+	ngOnInit(){
+		this.userModelWrapper = this._userService.userModelWrapper;
+	}
 }

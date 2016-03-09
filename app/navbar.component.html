@@ -26,13 +26,13 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a id="register" [routerLink]="['Register']">
+					<a *ngIf="userModelWrapper.userModel===null" id="register" [routerLink]="['Register']">
 					<span class="glyphicon glyphicon-user">
 					</span>
 					Register	
 					</a>
 				</li>
-				<li>
+				<li *ngIf="userModelWrapper.userModel === null">
 					<a id="login" [routerLink]="['Login']">
 					<span class="glyphicon glyphicon-log-in">
 					</span>

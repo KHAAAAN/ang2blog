@@ -1,0 +1,13 @@
+<div id="cf" class="shadow">
+	<img *ngFor="#image of images" [style.opacity]="image.opacity" [src]= 'image.picture'>
+</div>
+<div id="buttons">
+
+		<label *ngFor="#image of images; #i=index" class="radio-inline">
+				<input type="radio" name="optradio" checked="checked" 
+				(change)="transition(i)"
+				[checked] = "curIndex === i"
+				>
+		</label>
+
+</div>

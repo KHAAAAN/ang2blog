@@ -3,7 +3,7 @@ import {Http, Response} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class HomeService {
+export class FrontContentService {
 	constructor (private http: Http) {}
 
 	private _locationUrl = 'http://localhost:3000/app/images/pics.json';

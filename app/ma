@@ -1,0 +1,9 @@
+CREATE TABLE BlogPosts(
+	owner varchar(128), 
+	dateTime varchar(128),
+	data TEXT,
+
+	PRIMARY KEY(owner, dateTime)
+);
+		
+

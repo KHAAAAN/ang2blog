@@ -39,20 +39,30 @@
 					Login
 					</a>	
 				</li>
+
+				<li *ngIf="userModel && userModel.permissions.superUser">
+					<a [routerLink]="['AddBP']" style="cursor: pointer;" id="login">
+					<span class="glyphicon glyphicon-plus">
+					</span>
+					Add blog-post
+					</a>	
+				</li>
+
 				<li *ngIf="userModel">
-					<a style="pointer: default;" id="login">
+					<a style="cursor: default;" id="login">
 					<span class="glyphicon glyphicon-knight">
 					</span>
 					Logged in as {{userModel.name}}
 					</a>	
 				</li>
 				<li *ngIf="userModel">
-					<a id="login">
+					<a id="login" style="cursor: pointer;" (click)="logOut()">
 					<span class="glyphicon glyphicon-log-out">
 					</span>
 					Log out
 					</a>	
 				</li>
+
 			</ul>
 		</div>
 

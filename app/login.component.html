@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <form class="form-signin">
+  <div class="div-signin">
     <h2 style="font-weight: bold;" class="form-signin-heading">Login</h2>
     <input [(ngModel)] = "username"
    	style="margin-bottom: 15px;" type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
@@ -8,9 +8,10 @@
     <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
       </label>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn()">Sign In</button>
+    <button class="btn btn-lg btn-primary btn-block" (click)="signIn()">Sign In</button>
 	<div style="text-align: center; margin-top: 10px; margin-bottom: -30px;">
-		<a *ngIf="invalidInfo" style="text-decoration:none; color:red;">Wrong username/password combination.</a>
+		<a *ngIf="invalidInfo" style="font-weight:bold; text-decoration:none; 	color: #E23237">Wrong username/password combination.</a>
+		<a *ngIf="message" style="font-weight:bold; text-decoration:none; color: green;">{{message}}</a>
 	</div>
-  </form>
+  </div>
 </div>

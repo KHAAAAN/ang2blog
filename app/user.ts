@@ -6,7 +6,4 @@ export class User{
 		normalUser:	null as boolean		
 	}	
 
-	/*constructor(){
-		this.permissions = { superUser: false, normalUser: false }
-	}*/
 }

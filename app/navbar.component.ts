@@ -1,5 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from 'angular2/core';
+import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import{LoginComponent} from './login.component';
 import{RegisterComponent} from './register.component';
@@ -17,9 +17,18 @@ import {UserService} from './user.service';
 
 
 export class NavbarComponent {	
-	constructor (private _userService : UserService){	
+	constructor (private _userService : UserService, private _router : Router){	
+		//when ready to set this.userModel, it will do so
 		this._userService.user$.subscribe(userModel => { this.userModel = userModel[0]; } );
 	}
 
 	public userModel: User;
+
+	public logOut(){
+		var name = this.userModel.name;
+		this._userService.unloadUser();
+
+		let link = ["LogoutSucc", {name: name}]
+		this._router.navigate(link);
+	}
 }

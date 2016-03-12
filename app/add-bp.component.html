@@ -1,0 +1,18 @@
+<div class="form-group wrapper">
+	<ul style="">
+		<li>
+			<a style="font-size: 24px; font-weight: bold;">Header</a>
+			<div style="height: 30px;">
+				<input class="form-control" id="header" [(ngModel)]="blogPostModel.header">
+			</div>
+		</li>
+		<li>
+
+			<a  style="font-size: 24px; font-weight: bold;">Body</a>
+			<div>
+				<textarea  class="form-control" id="body" [(ngModel)]="blogPostModel.body"></textarea>
+			</div>
+		</li>
+		<button class="btn btn-lg btn-primary btn-block" (click)="postToBlog()">Post To Blog</button>
+	</ul>
+</div>

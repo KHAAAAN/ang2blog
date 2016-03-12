@@ -2,7 +2,7 @@
 	margin: auto;
 	margin-top: 10%;
     text-align: center;
-    width: 70%;
+    width: 50%;
 	border: 1px solid rgba(0,0,0,0.1);  
     padding: 10px;
 	background: rgba(255,255,255,1);
@@ -22,8 +22,8 @@
 .msg a{
 	text-decoration: none;
 	cursor: default;
-	font-weight:bold;
 	color: #337ab7;
+	font-weight:bold;
 }
 
 

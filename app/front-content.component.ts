@@ -65,7 +65,6 @@ export class FrontContentComponent{
 				this._imagesLength = images.length;
 				for(var i = 0; i < images.length; i++)
 				{
-					console.log(images[i]);
 					this.images[i] = {}
 					this.images[i].picture = images[i];
 					this.images[i].opacity = 0;

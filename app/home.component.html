@@ -1,1 +1,12 @@
 <front-content></front-content>
+
+<div style="position:relative;" id="blog_posts">
+	<ul>
+		<li *ngFor="#blogPost of blogPosts;">
+			<button *ngIf="userModel && userModel.permissions.superUser"  class="del-btn" (click)="deletePost(blogPost)">Delete Post</button>
+			<blog-post [blogPostModel] = "blogPost"> </blog-post>	
+		</li>
+	</ul>
+
+</div>
+

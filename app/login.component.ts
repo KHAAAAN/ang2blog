@@ -1,7 +1,7 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {LoginService} from './login.service';
 import {UserService} from './user.service';
-import { Router } from 'angular2/router';
+import { Router, RouteParams } from 'angular2/router';
 
 @Component({
 	selector: 'login',
@@ -18,14 +18,18 @@ export class LoginComponent{
 	public error;
 	public invalidInfo: boolean;
 
+	public message: string;
+
 	public signIn(){
 		this._loginService.authenticate(this.username, this.password)
 		.subscribe(token => {
 			this.token = token;
-			console.log("token = " + this.token);
 
 			//token will be 0 if user doesn't exist
 			if(token == 0){
+				//incase a message is present
+				this.message = null;
+
 				this.invalidInfo = true;	
 			}
 			else{
@@ -40,14 +44,16 @@ export class LoginComponent{
 
 
 	public gotoSuccess() {
-		/*let link = ['LoginSucc', { name: this.username }];
-		this._router.navigate(link);*/
-
-		/*let link = ['LoginSucc'];
-		this._router.navigate(link);*/
-	   this._router.parent.navigate(['LoginSucc']);
+		let link = ['LoginSucc', { name: this.username }];
+		this._router.parent.navigate(link);
 	}
 
-	constructor(private _loginService: LoginService, private _userService: UserService, private _router: Router){}
+	constructor(private _loginService: LoginService, private _userService: UserService, private _router: Router,
+			   private _routeParams: RouteParams){
+
+				   if (_routeParams.params["message"] != undefined){
+						this.message = _routeParams.params["message"];
+				   }
+			   }
 
 }

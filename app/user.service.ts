@@ -2,7 +2,7 @@ import {Injectable, OnInit} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {User} from './user';
 
-import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/share'; //for sharing Observable stream
 
 @Injectable()
 export class UserService {
@@ -14,6 +14,7 @@ export class UserService {
 		};
 	
 	public user$: Observable<Array<User>>;
+
 
 	public setUserModel(name: string, token: number){
 		this.userModel = new User();
@@ -28,14 +29,23 @@ export class UserService {
 
 	}
 
-
-
-
 	loadUser(){
 		this._dataStore.users = [this.userModel];
 
 		//push datastore.users into rx stream
 		this._userObserver.next(this._dataStore.users);
+	}
+
+	unloadUser(){
+		this._dataStore.users = [null];
+
+		//push datastore.users into rx stream
+		this._userObserver.next(this._dataStore.users);
+	}
+
+	//for adding post
+	public getUserName(){
+		return this.userModel.name;
 	}
 
 	constructor(){

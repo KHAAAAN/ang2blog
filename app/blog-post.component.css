@@ -1,0 +1,14 @@
+article{
+	width: 80%;
+}
+
+div a{
+	text-decoration: none;
+}
+
+div textarea{
+	width: 100%;
+	resize: none;
+}
+
+

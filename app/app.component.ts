@@ -3,12 +3,18 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {RouteConfig, ROUTER_PROVIDERS} from 'angular2/router';
 
 import {NavbarComponent} from './navbar.component';
-import{LoginComponent} from './login.component';
 import {RegisterComponent} from './register.component';
 import {HomeComponent} from './home.component';
+
+import{LoginComponent} from './login.component';
 import {LoginSuccComponent} from './login-succ.component';
+import {LogoutSuccComponent} from './logout-succ.component';
 
 import {UserService} from './user.service';
+
+import {AddBPComponent} from './add-bp.component';
+
+import {BlogPostService} from './blog-post.service';
 
 @Component({
     selector: 'app',
@@ -17,7 +23,7 @@ import {UserService} from './user.service';
 
 	directives: [NavbarComponent],
 
-	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService]
+	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService, BlogPostService]
 })
 
 @RouteConfig([
@@ -43,6 +49,19 @@ import {UserService} from './user.service';
 		path: '/login_successful',
 		name: 'LoginSucc',
 		component: LoginSuccComponent
+	},
+
+
+	{
+		path: '/logout_successful',
+		name: 'LogoutSucc',
+		component: LogoutSuccComponent
+	},
+
+	{
+		path: '/add_blog_post',
+		name: 'AddBP',
+		component: AddBPComponent
 	}	
 ])
 

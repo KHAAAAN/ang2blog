@@ -88,7 +88,7 @@ func blogPostsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 
 	fmt.Println("Request to get_blog_posts acknowledged.")
 	
-	rows, err := db.Query("SELECT data FROM BlogPosts")
+	rows, err := db.Query("SELECT data FROM BlogPosts ORDER BY dateTime")
 	if err != nil {
 		log.Fatal(err)
 	}

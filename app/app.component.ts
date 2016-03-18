@@ -10,11 +10,15 @@ import{LoginComponent} from './login.component';
 import {LoginSuccComponent} from './login-succ.component';
 import {LogoutSuccComponent} from './logout-succ.component';
 
+import {RedirectComponent} from './redirect.component';
+
 import {UserService} from './user.service';
 
 import {AddBPComponent} from './add-bp.component';
 
 import {BlogPostService} from './blog-post.service';
+
+import {CommentsPageComponent} from './comments-page.component';
 
 @Component({
     selector: 'app',
@@ -59,10 +63,23 @@ import {BlogPostService} from './blog-post.service';
 	},
 
 	{
+		path: '/redirect',
+		name: 'Redirect',
+		component: RedirectComponent
+
+	},
+
+	{
 		path: '/add_blog_post',
 		name: 'AddBP',
 		component: AddBPComponent
-	}	
+	},
+
+	{
+		path: '/comments_page',
+		name: 'CommentsPage',
+		component: CommentsPageComponent
+	}
 ])
 
 export class AppComponent { 

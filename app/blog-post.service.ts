@@ -11,7 +11,8 @@ export class BlogPostService {
 	private _locationUrls = [
 		'http://localhost:3000/get_blog_posts',
 		'http://localhost:3000/attempt_to_add_blog_post',
-		'http://localhost:3000/attempt_to_delete_blog_post'
+		'http://localhost:3000/attempt_to_delete_blog_post',
+		'http://localhost:3000/attempt_to_edit_blog_post'
 	]
 
 	getAllBlogPosts () {
@@ -43,6 +44,19 @@ export class BlogPostService {
 		.do(() => console.log("deleteBlogPost: Success"))
 		.catch(this.handleError);
 			
+	}
+
+	//can use this to update comments and body
+	updatePost(owner: string, date: string, data: BlogPost){
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('owner', owner);
+		params.set('date', date);
+		params.set('data', JSON.stringify(data));
+
+		return this.http.get(this._locationUrls[3], {search: params})
+		.map(res => <number> res.json().data)
+		.do(() => console.log("editBlogPost: Success"))
+		.catch(this.handleError);
 	}
 
 	private handleError (error: Response) {

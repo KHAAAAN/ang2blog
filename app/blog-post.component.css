@@ -1,14 +1,99 @@
 article{
-	width: 80%;
+	/*width: 80%;*/
 }
 
 div a{
 	text-decoration: none;
 }
 
-div textarea{
+
+.post-body{
 	width: 100%;
 	resize: none;
+	border-style: none;
+
+	background-color: transparent;
+	outline-color: transparent;
+	height: 60px;
 }
 
 
+.comment-body{
+	width: 100%;
+	resize: none;
+	border-style: none;
+
+	background-color: transparent;
+	outline-color: transparent;
+	height: 40px;
+
+}
+
+.current-comment{
+	width: 100%;
+	height: 60px;
+	resize: none;
+}
+
+.canEdit{
+	border-style: solid;
+	background: white;
+	outline-color: #337AB7;
+}
+
+.canEditComment{
+	border-style: solid;
+	background: white;
+	outline-color: #337AB7;
+}
+
+.comments{
+	margin-bottom: 30px;
+}
+
+.comment-submit{
+    border-style: solid;
+    padding: 10px;
+    border-width: thin;
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+#comments-section{
+	color:#E23237; 
+	font-weight: bold; 
+	float:right; 
+	cursor: pointer;
+}
+
+#comments-section:hover{
+	color: #B52E31;
+}
+
+hr{
+	margin-top: 30px;
+	border-color: rgba(0, 0, 0, 0.06);/*chrome, opera*/
+	background-color: rgba(0, 0, 0, 0.06);/*firefox*/
+	color: rgba(0, 0, 0, 0.06);/*ie*/
+}
+
+.hr1{
+	margin-bottom: 0px;
+	border-color: rgba(0, 0, 0, 0.06);/*chrome, opera*/
+	background-color: rgba(0, 0, 0, 0.06);/*firefox*/
+	color: rgba(0, 0, 0, 0.06);/*ie*/
+}
+
+.bp-header{
+    background: #203639;
+    color: white;
+    padding: 5px;
+    min-width: 250px;
+    padding-left: 30px;
+	padding-right:30px;
+    display: inline-block;
+    margin-left: -30px;
+    border-style: solid;
+    border-radius: 7px;
+    border-color: rgb(156, 155, 155);
+	box-shadow: 7px 7px 3px rgba(8, 8, 8, 0.73);
+}

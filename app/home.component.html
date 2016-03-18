@@ -1,12 +1,42 @@
 <front-content></front-content>
 
-<div style="position:relative;" id="blog_posts">
-	<ul>
+<div id="blog-posts">
+	<ul *ngIf="blogPosts && blogPosts.length > 0">
 		<li *ngFor="#blogPost of blogPosts;">
-			<button *ngIf="userModel && userModel.permissions.superUser"  class="del-btn" (click)="deletePost(blogPost)">Delete Post</button>
-			<blog-post [blogPostModel] = "blogPost"> </blog-post>	
+			<blog-post [userModel]="userModel" [blogPostModel] = "blogPost"> </blog-post>	
 		</li>
 	</ul>
 
 </div>
+
+
+<div class="container-fluid" id="bottom">
+	
+
+	<div class="navbar-header">
+		<a style="display: inline-block; padding-right: 20px; font-size: 24px; cursor: default; text-decoration: none; padding-top:10px; color: white;">Powered By</a>
+	</div>	
+
+	<div class="navbar-header">
+			<img style="height: 50px; width: 70px; margin-right: 20px; mix-blend-mode: multiply;" src="app/images/maria.png">
+	</div>	
+
+	<div class="navbar-header">
+			<img style="height: 50px; width: 40px; margin-right: 20px; mix-blend-mode: multiply;" src="app/images/go.png">
+	</div>	
+
+	<div class="navbar-header">
+		<a class="navbar-brand" style="padding-top:8px; padding-right: 3px;">
+			<img alt="Angular" src="app/images/logo-nav.png">
+		</a>
+		<a style="display: inline-block; padding-right: 15px; font-size: 24px; cursor: default; text-decoration: none; padding-top:10px; color: white;">2</a>
+	</div>	
+
+
+
+</div>
+<div id="bottom2">
+	<a>Khanpyright™ ©1994-2016</a>
+</div>
+
 

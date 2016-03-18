@@ -1,16 +1,74 @@
 <article>
 	
-	<h1>{{blogPostModel.header}}</h1>
-	<h2>{{blogPostModel.date}}</h2>
-	<h3>{{blogPostModel.owner}}</h3>
+<div><h1 class="bp-header">{{blogPostModel.header}}</h1></div>
+	<h2 style="margin-top:0px; margin-bottom: 7px;">Posted by {{blogPostModel.owner}}</h2>
+	<h3 style="margin-top:0px; margin-bottom: 20px; color: gray; font-size: 12px;">{{blogPostModel.date}}</h3>
 
-	<p>{{blogPostModel.body}}</p>
+	<textarea [readonly]="!canEdit" [class.canEdit] = "canEdit" class="post-body" [(ngModel)]="blogPostModel.body"></textarea>
 
-	<div>
-	<a>Leave a comment</a>
-	<div><textarea> </textarea>	</div>	
-	<button id="submit">Submit</button>
+
+	<div style="margin-top: 10px; margin-bottom: 20px;">
+		<button *ngIf="userModel && userModel.permissions.superUser && !canEdit"  class="btn btn-md btn-primary" (click)="editPost()">Edit Post</button>
+
+		<button *ngIf="userModel && userModel.permissions.superUser && canEdit"   class="btn btn-md btn-primary" (click)="savePost()">Save</button>
+		<button *ngIf="userModel && userModel.permissions.superUser && canEdit"  class="btn btn-md btn-primary"(click)="cancel()">Cancel</button>
+
+		<div style="float:right;">
+			<button *ngIf="userModel && userModel.permissions.superUser"  class="btn btn-md btn-primary" (click)="deletePost()">Delete Post</button>
+		</div>
+
 	</div>
 
-	<hr>
+
+
+	<div  class="comment-submit">
+		<div *ngIf="showComments && blogPostModel.comments.length == 0" class="comments">
+			<h4>No comment posted. Be the first to post, son.</h4>		
+		</div>
+
+		<div *ngIf="showComments && blogPostModel.comments.length > 0" class="comments">
+			<ul style="list-style-type: none;">
+				<li style="padding-right: 50px;" *ngFor="#comment of blogPostModel.comments; #i=index">
+					<h4 style="font-weight: bold">{{comment.owner}} wrote...</h4>	
+					<textarea [readonly]="!canEditComment[i]" [class.canEditComment] = "canEditComment[i]" class="comment-body" [(ngModel)]="comment.text"> </textarea>
+
+					<hr class="hr1">
+
+					<div style="margin-top:2px; margin-bottom: 30px;">
+						<a style="margin: 0; font-size: 12px; color: gray;">{{comment.date}} </a>
+						<div *ngIf="userModel && (userModel.permissions.superUser || userModel.name === comment.owner)" style="float: right;">
+							<button *ngIf="!canEditComment[i]" class="btn btn-md btn-primary" (click)="editComment(i)">Edit Comment</button>
+							<button *ngIf="canEditComment[i]" class="btn btn-md btn-primary" (click)="saveCommentEdit(i)">Save</button>
+							<button *ngIf="canEditComment[i]" class="btn btn-md btn-primary" (click)="cancelCommentEdit(i)">Cancel</button>
+							<button class="btn btn-md btn-primary" (click)="deleteComment(comment.owner, comment.date)">Delete Comment</button>
+						</div>
+					</div>
+
+				</li>
+			</ul>
+		</div>
+
+		<div *ngIf="userModel == null">
+			<a *ngIf="!showComments" id="comments-section" (click)="loadComments()">Click to view ({{blogPostModel.comments.length}}) comments</a>
+			<a *ngIf="showComments" id="comments-section" (click)="unloadComments()">Minimize Comments</a>
+			<a style="cursor: pointer;" (click)="goToLogin()">Login or register to comment...</a>
+		</div>
+
+		<div *ngIf="userModel">
+			<div>
+				<a>Leave a comment</a>
+
+				<a *ngIf="!showComments" id="comments-section" (click)="loadComments()">Click to view ({{blogPostModel.comments.length}}) comments</a>
+				<a *ngIf="showComments" id="comments-section" (click)="unloadComments()">Minimize Comments</a>
+
+			</div>
+			<div style="margin-top: 10px;">
+				<textarea class="current-comment" [(ngModel)]="currentComment"> </textarea>	
+			</div>	
+			<button style="margin-top: 10px;" class="btn btn-md btn-primary" id="submit" (click)="submitComment()">Submit Comment</button>
+
+		</div>
+	</div>
+
+	<hr style="color: black;">
 </article>

@@ -17,7 +17,7 @@ export class AddBPComponent implements OnInit{
 
 	public postToBlog(){
 		this.blogPostModel.owner = this._userService.getUserName();
-		this.blogPostModel.date = new Date().toString();
+		this.blogPostModel.date = new Date().toLocaleString();
 
 		this._blogPostService.postBlogPost(this.blogPostModel)
 		.subscribe( 
@@ -28,13 +28,16 @@ export class AddBPComponent implements OnInit{
 		)
 
 		//reset
-		this.blogPostModel = new BlogPost();			
+		//this.blogPostModel = new BlogPost();			
+
+		this._router.navigate(["Redirect", {message: "Adding post..."}]);
 	}
 
 	ngOnInit(){
 		this.blogPostModel = new BlogPost();	
 	}
 
-	constructor(private _blogPostService: BlogPostService, private _userService: UserService){
+	constructor(private _blogPostService: BlogPostService, private _userService: UserService,
+			   private _router: Router){
 	}
 }

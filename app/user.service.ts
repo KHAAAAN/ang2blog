@@ -37,6 +37,7 @@ export class UserService {
 	}
 
 	unloadUser(){
+		this.userModel = null;
 		this._dataStore.users = [null];
 
 		//push datastore.users into rx stream
@@ -49,11 +50,10 @@ export class UserService {
 	}
 
 	constructor(){
-		this.user$	= new Observable(observer => {
+		this.user$ = new Observable(observer => {
 										 this._userObserver = observer;
 		}).share();
 		
 		this._dataStore = { users: [] };
-	}
-	
+	}	
 }

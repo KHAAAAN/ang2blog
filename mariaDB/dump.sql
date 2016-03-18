@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `ang2blog`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `ang2blog` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `ang2blog`;
-
---
 -- Table structure for table `BlogPosts`
 --
 
@@ -44,7 +36,7 @@ CREATE TABLE `BlogPosts` (
 
 LOCK TABLES `BlogPosts` WRITE;
 /*!40000 ALTER TABLE `BlogPosts` DISABLE KEYS */;
-INSERT INTO `BlogPosts` VALUES ('admin','Fri Mar 11 2016 20:53:16 GMT-0800 (PST)','{\"comments\":[],\"header\":\"test\",\"body\":\"test\",\"owner\":\"admin\",\"date\":\"Fri Mar 11 2016 20:53:16 GMT-0800 (PST)\"}'),('admin','Fri Mar 11 2016 20:53:18 GMT-0800 (PST)','{\"comments\":[],\"header\":\"yrdsy\",\"body\":\"yseye\",\"owner\":\"admin\",\"date\":\"Fri Mar 11 2016 20:53:18 GMT-0800 (PST)\"}');
+INSERT INTO `BlogPosts` VALUES ('adam','3/17/2016, 11:19:34 PM','{\"comments\":[],\"header\":\"TEST3\",\"body\":\"TEST3\",\"owner\":\"adam\",\"date\":\"3/17/2016, 11:19:34 PM\"}'),('jay','3/17/2016, 11:18:21 PM','{\"comments\":[],\"header\":\"TEST1\",\"body\":\"TEST\",\"owner\":\"jay\",\"date\":\"3/17/2016, 11:18:21 PM\"}'),('jay','3/17/2016, 11:18:34 PM','{\"comments\":[{\"owner\":\"jay\",\"date\":\"3/17/2016, 11:32:02 PM\",\"text\":\"FFAFAFAFAfasdfdasagdssagd\"},{\"owner\":\"tyler\",\"date\":\"3/17/2016, 11:31:45 PM\",\"text\":\"CRAPTATO\"}],\"header\":\"TEST2\",\"body\":\"FFAFAFAFAfasdfdasagdssagd\",\"owner\":\"jay\",\"date\":\"3/17/2016, 11:18:34 PM\"}');
 /*!40000 ALTER TABLE `BlogPosts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-11 21:15:48
+-- Dump completed on 2016-03-17 23:47:16

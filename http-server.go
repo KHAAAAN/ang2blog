@@ -106,7 +106,7 @@ func blogPostsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 		}
 
 		s = append(s, data)
-
+		fmt.Println(data);
 	}
 
 	for i := len(s)-1; i >= 0; i-- {
@@ -155,6 +155,18 @@ func deleteBlogPostHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 
 }
 
+func updateBlogPostHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
+	fmt.Println("Request to attempt_to_update_blog_post acknowledged.")
+	
+	m := r.URL.Query()
+	owner, dateTime, data := m["owner"][0], m["date"][0], m["data"][0]
+
+	db.Exec("UPDATE BlogPosts SET data=? WHERE owner=? AND dateTime=?", data, owner, dateTime)
+
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprintf(w, "{\"data\" : \"%d\"}", 1)
+}
+
 func refreshHandler(w http.ResponseWriter, r*http.Request){
 	http.ServeFile(w, r, "index.html")
 	fmt.Println("browser refresh.")
@@ -196,6 +208,10 @@ func main() {
 		deleteBlogPostHandler(w, r, db)
 	})
 
+	http.HandleFunc("/attempt_to_edit_blog_post", func(w http.ResponseWriter, r *http.Request){
+		updateBlogPostHandler(w, r, db)
+	})
+
 	/*******All refresh/history*****/
 	http.HandleFunc("/home", refreshHandler)
 	http.HandleFunc("/register", refreshHandler)
@@ -204,6 +220,8 @@ func main() {
 	http.HandleFunc("/logout_successful", refreshHandler)
 	http.HandleFunc("/add_blog_post", refreshHandler)
 	http.HandleFunc("/comments_page", refreshHandler)
+
+	http.HandleFunc("/redirect", refreshHandler)
 
 
 	fmt.Println("Listening on 3000")

@@ -3,6 +3,8 @@ import {LoginService} from './login.service';
 import {UserService} from './user.service';
 import { Router, RouteParams } from 'angular2/router';
 
+import {CookieService} from 'angular2-cookie/core';
+
 @Component({
 	selector: 'login',
 	templateUrl: 'app/login.component.html',
@@ -19,6 +21,7 @@ export class LoginComponent{
 	public invalidInfo: boolean;
 
 	public message: string;
+	public checked: boolean = false;
 
 	public signIn(){
 		this._loginService.authenticate(this.username, this.password)
@@ -33,6 +36,17 @@ export class LoginComponent{
 				this.invalidInfo = true;	
 			}
 			else{
+				//check if user wants to be remembered.
+				console.log("checked ", this.checked);
+				if(this.checked == true){
+					
+					this._cookieService.put('username', this.username)	
+					this._cookieService.put('token', this.token.toString())	
+					var username = this._cookieService.get('username');
+					var token = this._cookieService.get('token');
+	
+				}
+
 				this.invalidInfo = null;
 				this._userService.setUserModel(this.username, this.token);
 				this.gotoSuccess();	
@@ -49,11 +63,10 @@ export class LoginComponent{
 	}
 
 	constructor(private _loginService: LoginService, private _userService: UserService, private _router: Router,
-			   private _routeParams: RouteParams){
+			   private _routeParams: RouteParams, private _cookieService: CookieService){
 
 				   if (_routeParams.params["message"] != undefined){
 						this.message = _routeParams.params["message"];
 				   }
 			   }
-
 }

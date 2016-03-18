@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {User} from './user';
 
 import 'rxjs/add/operator/share'; //for sharing Observable stream
+import {CookieService} from 'angular2-cookie/core';
 
 @Injectable()
 export class UserService {
@@ -42,6 +43,9 @@ export class UserService {
 
 		//push datastore.users into rx stream
 		this._userObserver.next(this._dataStore.users);
+
+		//remove cookies
+		this._cookieService.removeAll();
 	}
 
 	//for adding post
@@ -49,9 +53,18 @@ export class UserService {
 		return this.userModel.name;
 	}
 
-	constructor(){
+	constructor(private _cookieService: CookieService){
+
 		this.user$ = new Observable(observer => {
-										 this._userObserver = observer;
+				 this._userObserver = observer;
+
+				var username = this._cookieService.get('username');
+				var token = this._cookieService.get('token');
+
+				if(username !== undefined && token !== undefined){
+					this.setUserModel(username, token);
+				}
+
 		}).share();
 		
 		this._dataStore = { users: [] };

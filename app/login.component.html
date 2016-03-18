@@ -6,7 +6,7 @@
     <input [(ngModel)] = "password"
 	type="password" class="form-control" name="password" placeholder="Password" required="" />
     <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+        <input type="checkbox"(change)="checked=$event.target.checked" [checked]="checked"> Remember me
       </label>
     <button class="btn btn-lg btn-primary btn-block" (click)="signIn()">Sign In</button>
 	<div style="text-align: center; margin-top: 10px; margin-bottom: -30px;">

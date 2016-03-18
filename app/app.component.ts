@@ -20,6 +20,8 @@ import {BlogPostService} from './blog-post.service';
 
 import {CommentsPageComponent} from './comments-page.component';
 
+import {CookieService} from 'angular2-cookie/core';
+
 @Component({
     selector: 'app',
     templateUrl: 'app/app.component.html',
@@ -27,7 +29,8 @@ import {CommentsPageComponent} from './comments-page.component';
 
 	directives: [NavbarComponent],
 
-	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService, BlogPostService]
+	providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, UserService, BlogPostService,
+				CookieService]
 })
 
 @RouteConfig([
@@ -83,4 +86,7 @@ import {CommentsPageComponent} from './comments-page.component';
 ])
 
 export class AppComponent { 
+	constructor(){
+	}
+
 }

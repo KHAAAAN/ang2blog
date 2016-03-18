@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "angular2": "2.0.0-beta.8",
+    "angular2-cookie": "^1.0.8",
     "bootstrap": "^3.3.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",

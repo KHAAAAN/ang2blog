@@ -16,25 +16,3 @@ ul {
     margin: 0 auto;
 }
 
-#bottom{
-	background: gray;
-	height:50px;
-	color: white;
-	padding-left: 30%;
-}
-
-#bottom2{
-	background: rgba(0, 0, 0, 0.78);
-	height:25px;
-	text-align: center;
-}
-
-#bottom2 a{
-	position: relative;
-	color: white;
-	text-decoration: none;
-}
-
-#bottom2 a:hover{
-	color: white;
-}

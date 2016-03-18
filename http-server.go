@@ -52,7 +52,7 @@ func registerHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 	username, password := m["username"][0], m["password"][0]
 
 	//now check if user exists in our database
-	rows, err := db.Query("SELECT EXISTS(SELECT * FROM users WHERE user=? AND password=?)", username, password)
+	rows, err := db.Query("SELECT EXISTS(SELECT * FROM users WHERE user=?)", username)
 	if err != nil{
 		log.Fatal(err)
 	}

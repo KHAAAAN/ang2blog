@@ -1,6 +1,10 @@
 <front-content></front-content>
 
 <div id="blog-posts">
+	<div style="margin-bottom: 38%;" *ngIf="blogPosts && blogPosts.length == 0">
+		<h1 style="text-align: center;">It's kinda lonely here..</h1>	
+	</div>
+
 	<ul *ngIf="blogPosts && blogPosts.length > 0">
 		<li *ngFor="#blogPost of blogPosts;">
 			<blog-post [userModel]="userModel" [blogPostModel] = "blogPost"> </blog-post>	
@@ -8,35 +12,4 @@
 	</ul>
 
 </div>
-
-
-<div class="container-fluid" id="bottom">
-	
-
-	<div class="navbar-header">
-		<a style="display: inline-block; padding-right: 20px; font-size: 24px; cursor: default; text-decoration: none; padding-top:10px; color: white;">Powered By</a>
-	</div>	
-
-	<div class="navbar-header">
-			<img style="height: 50px; width: 70px; margin-right: 20px; mix-blend-mode: multiply;" src="app/images/maria.png">
-	</div>	
-
-	<div class="navbar-header">
-			<img style="height: 50px; width: 40px; margin-right: 20px; mix-blend-mode: multiply;" src="app/images/go.png">
-	</div>	
-
-	<div class="navbar-header">
-		<a class="navbar-brand" style="padding-top:8px; padding-right: 3px;">
-			<img alt="Angular" src="app/images/logo-nav.png">
-		</a>
-		<a style="display: inline-block; padding-right: 15px; font-size: 24px; cursor: default; text-decoration: none; padding-top:10px; color: white;">2</a>
-	</div>	
-
-
-
-</div>
-<div id="bottom2">
-	<a>Khanpyright™ ©1994-2016</a>
-</div>
-
 

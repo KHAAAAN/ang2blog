@@ -43,7 +43,7 @@ export class LoginComponent{
 					this._cookieService.put('username', this.username)	
 					this._cookieService.put('token', this.token.toString())	
 					var username = this._cookieService.get('username');
-					var token = this._cookieService.get('token');
+					var token = parseInt(this._cookieService.get('token'));
 	
 				}
 

@@ -59,7 +59,7 @@ export class UserService {
 				 this._userObserver = observer;
 
 				var username = this._cookieService.get('username');
-				var token = this._cookieService.get('token');
+				var token = parseInt(this._cookieService.get('token'));
 
 				if(username !== undefined && token !== undefined){
 					this.setUserModel(username, token);
